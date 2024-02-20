@@ -11,9 +11,9 @@ class build:
         except:
             print('rebuilding')
         #os.chdir('JSbuild/')
-        self.builder()
-    def builder(self):
-        directory = '/path/to/your/directory'
+        self.builder(filename)
+    def builder(self,filepath):
+        directory = filepath
         files_and_dirs = os.listdir(directory)
         for file in files_and_dirs:
             file_path = os.path.join(directory, file)
