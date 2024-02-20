@@ -55,7 +55,6 @@ class build:
         data = {
             "body": file
         }
-
         response = requests.post(url, headers=headers, data=data)
         if response.ok:
             data = response.json()
