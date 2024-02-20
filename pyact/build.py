@@ -1,5 +1,6 @@
 import os
 import requests
+import threading
 
 class build:
     def __init__(self,filename):
@@ -9,7 +10,8 @@ class build:
             print('building')
         except:
             print('rebuilding')
-        os.chdir('JSbuild/')
+        #os.chdir('JSbuild/')
+        self.builder()
     def builder(self):
         directory = '/path/to/your/directory'
         files_and_dirs = os.listdir(directory)
@@ -19,6 +21,28 @@ class build:
                 if file_path.endswith(".pyact") or file_path.endswith(".py"):
                     print(file_path)
                     self.buildFile(file_path)
+                else:
+                    self.BuildFolder().start()
+    def BuildFolder():
+        class folderT(threading):
+            def __init__(self,builderT):
+                super()
+                self.builderT = builderT
+            def run(self,folderPath):
+                directory = folderPath
+                builderT = self.builderT
+                files_and_dirs = os.listdir(directory)
+                for file in files_and_dirs:
+                    file_path = os.path.join(directory, file)
+                    if os.path.isfile(file_path):
+                        if file_path.endswith(".pyact") or file_path.endswith(".py"):
+                            print(file_path)
+                            buildFile(file_path)
+                    else:
+                        builderT(builderT).start()
+        folderT(folderT).run()
+                        
+
     def buildFile(self,path):
         url = "https://api.extendsclass.com/convert/python/es6"
         headers = {
@@ -27,16 +51,20 @@ class build:
             "sec-fetch-mode": "cors",
             "sec-fetch-site": "same-site",
         }
-        file = open('path','r').read()
+        file = open(path,'r').read()
         data = {
             "body": file
         }
 
         response = requests.post(url, headers=headers, data=data)
-
         if response.ok:
             data = response.json()
             js =  data['stdout']
         else:
             print("Error fetching data:", response.status_code, response.reason)
-        open('')
+        try:
+            n = open(path.split('/')[1:-1],'w')
+        except:
+            n = open(path.split('\\')[1:-1],'w')
+        n.write(js)
+        n.close()
