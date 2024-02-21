@@ -36,7 +36,7 @@ class build:
                     if os.path.isfile(file_path):
                         if file_path.endswith(".pyact") or file_path.endswith(".py"):
                             print(file_path)
-                            buildFile(file_path)
+                            self.buildFile(file_path)
                     else:
                         builderT(builderT).start()
         folderT(folderT).run()
