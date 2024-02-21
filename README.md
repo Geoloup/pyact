@@ -3,8 +3,10 @@
 Simplicity first.**
 ## Api    
 All the api class
-> window 
+> window
+> 
 > Document
+> 
 > Element
 
 To import the api you can do this `from pyact.api import *` or `import pyact.api as pyact`
