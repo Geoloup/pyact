@@ -61,8 +61,8 @@ class build:
         else:
             print("Error fetching data:", response.status_code, response.reason)
         try:
-            n = open('/JSbuild/' + path,'w')
+            n = open(path.replace(self.filename,'/JSbuild/'),'w')
         except:
-            n = open('/JSbuild/' + path,'w')
+            n = open(path.replace(self.filename,'/JSbuild/'),'w')
         n.write(js)
         n.close()
