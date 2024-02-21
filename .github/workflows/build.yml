@@ -26,7 +26,12 @@ jobs:
       run: |
         python main/setup.py
         
-    - name: Copy build directory
+    - name: Update build on github
       run: |
         mkdir build
-        cp -R /build/* build/
+        cp -R $GITHUB_WORKSPACE/build/* build/
+        git config --local user.email "action@github.com"
+        git config --local user.name "PYact Github action builder"
+        git add build/
+        git commit -m "Build"
+        git push
