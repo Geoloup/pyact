@@ -4,7 +4,6 @@ import threading
 
 class build:
     def __init__(self,filename):
-        code = open('build.pyon','r').read()
         try:
             os.mkdir('JSbuild/')
             print('building')
