@@ -1,4 +1,4 @@
-from pyact import api as pyact
+import pyact.api as pyact
 
 window = pyact.window()
 

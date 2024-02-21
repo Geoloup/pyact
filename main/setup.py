@@ -1,2 +1,2 @@
 import pyact.build as pyact
-pyact.build('website/')
+pyact('website/')
