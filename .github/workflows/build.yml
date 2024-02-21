@@ -2,15 +2,13 @@ name: Build pyract
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 3
+      max-parallel: 2
       matrix:
         python-version: [3.11]
 
@@ -27,3 +25,8 @@ jobs:
     - name: Run Tests
       run: |
         python main/setup.py
+        
+    - name: Copy build directory
+      run: |
+        mkdir build
+        cp -R /build/* build/
