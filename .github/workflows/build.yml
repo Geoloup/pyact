@@ -28,8 +28,8 @@ jobs:
         
     - name: Update build on github
       run: |
-        mkdir build
-        cp -R $GITHUB_WORKSPACE/build/* build/
+        mkdir JSbuild
+        cp -R $GITHUB_WORKSPACE/JSbuild/* JSbuild/
         git config --local user.email "action@github.com"
         git config --local user.name "PYact Github action builder"
         git add build/
