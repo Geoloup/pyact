@@ -36,7 +36,7 @@ class build:
                     if os.path.isfile(file_path):
                         if file_path.endswith(".pyact") or file_path.endswith(".py"):
                             print(file_path)
-                            buildFile(file_path)
+                            self.buildFile(file_path)
                     else:
                         builderT(builderT).start()
         folderT(folderT).run()
@@ -61,8 +61,8 @@ class build:
         else:
             print("Error fetching data:", response.status_code, response.reason)
         try:
-            n = open(path,'w')
+            n = open(path.replace(self.filename,'/JSbuild/'),'w')
         except:
-            n = open(path,'w')
+            n = open(path.replace(self.filename,'/JSbuild/'),'w')
         n.write(js)
         n.close()
