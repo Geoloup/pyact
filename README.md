@@ -1,6 +1,8 @@
 # Welcome to *pyact*
 **pyact is a web framework made in python for python dev. 
 Simplicity first.**
+## installation
+just do in terminal : `pip install pyract`
 ## Api    
 All the api class
 > window
