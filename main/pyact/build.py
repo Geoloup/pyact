@@ -61,8 +61,8 @@ class build:
         else:
             print("Error fetching data:", response.status_code, response.reason)
         try:
-            n = open(path.split('/')[1:-1],'w')
+            n = open(path.split('/')[1:-1].join('/'),'w')
         except:
-            n = open(path.split('\\')[1:-1],'w')
+            n = open(path.split('\\')[1:-1].join('/'),'w')
         n.write(js)
         n.close()
