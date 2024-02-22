@@ -30,8 +30,8 @@ jobs:
       run: |
         git branch build
         git checkout build
+        git add ./JSbuild/
         git config --local user.email "action@github.com"
         git config --local user.name "PYact Github action builder"
-        git add JSbuild/
         git commit -m "Build"
         git push
