@@ -7,7 +7,7 @@ class build:
     def __init__(self,filename):
         global filenamepath
         print(os.getcwd())
-        os.mkdir('/JSbuild/')
+        os.mkdir(os.getcwd() + '/JSbuild/')
         print('building')
         #os.chdir('JSbuild/')
         filenamepath = filename
@@ -63,8 +63,8 @@ class build:
         else:
             print("Error fetching data:", response.status_code, response.reason)
         try:
-            n = open(path.replace(filenamepath,'/JSbuild/'),'w')
+            n = open(path.replace(os.getcwd() + filenamepath,'/JSbuild/'),'w')
         except:
-            n = open(path.replace(filenamepath,'/JSbuild/'),'w')
+            n = open(path.replace(os.getcwd() + filenamepath,'/JSbuild/'),'w')
         n.write(js)
         n.close()
