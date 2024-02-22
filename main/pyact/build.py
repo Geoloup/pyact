@@ -6,8 +6,9 @@ filenamepath = ''
 class build:
     def __init__(self,filename):
         global filenamepath
+        print(os.cwd())
         try:
-            os.mkdir('JSbuild/')
+            os.mkdir('/JSbuild/')
             print('building')
         except:
             print('rebuilding')
