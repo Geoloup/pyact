@@ -7,11 +7,8 @@ class build:
     def __init__(self,filename):
         global filenamepath
         print(os.getcwd())
-        try:
-            os.mkdir('/JSbuild/')
-            print('building')
-        except:
-            print('rebuilding')
+        os.mkdir('/JSbuild/')
+        print('building')
         #os.chdir('JSbuild/')
         filenamepath = filename
         self.builder(filename)
