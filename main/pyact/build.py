@@ -4,7 +4,7 @@ import threading
 
 filenamepath = '' 
 class build:
-    def __init__(filenamepath,filename):
+    def __init__(self,filename):
         global filenamepath
         try:
             os.mkdir('JSbuild/')
