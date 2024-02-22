@@ -2,14 +2,18 @@ import os
 import requests
 import threading
 
+filenamepath = '' 
 class build:
     def __init__(self,filename):
+        global filenamepath
+        print(os.getcwd())
         try:
-            os.mkdir('JSbuild/')
+            os.mkdir('/JSbuild/')
             print('building')
         except:
             print('rebuilding')
         #os.chdir('JSbuild/')
+        filenamepath = filename
         self.builder(filename)
     def builder(self,filepath):
         directory = filepath
@@ -43,6 +47,7 @@ class build:
                         
 
     def buildFile(self,path):
+        global filenamepath
         url = "https://api.extendsclass.com/convert/python/es6"
         headers = {
             "Content-Type": "text/plain;charset=UTF-8",
@@ -61,8 +66,8 @@ class build:
         else:
             print("Error fetching data:", response.status_code, response.reason)
         try:
-            n = open(path.replace(self.filename,'/JSbuild/'),'w')
+            n = open(path.replace(filenamepath,'/JSbuild/'),'w')
         except:
-            n = open(path.replace(self.filename,'/JSbuild/'),'w')
+            n = open(path.replace(filenamepath,'/JSbuild/'),'w')
         n.write(js)
         n.close()

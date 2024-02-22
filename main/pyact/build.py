@@ -6,7 +6,7 @@ filenamepath = ''
 class build:
     def __init__(self,filename):
         global filenamepath
-        print(os.cwd())
+        print(os.getcwd())
         try:
             os.mkdir('/JSbuild/')
             print('building')
