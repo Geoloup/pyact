@@ -28,6 +28,8 @@ jobs:
         
     - name: Update build on github
       run: |
+        git branch build
+        git checkout build
         git config --local user.email "action@github.com"
         git config --local user.name "PYact Github action builder"
         git add JSbuild/
