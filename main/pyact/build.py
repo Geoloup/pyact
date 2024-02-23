@@ -62,6 +62,7 @@ class build:
             js =  data['stdout']
         else:
             print("Error fetching data:", response.status_code, response.reason)
+        print(path.replace(os.getcwd() + filenamepath,'/JSbuild/'))
         try:
             n = open(path.replace(os.getcwd() + filenamepath,'/JSbuild/'),'w')
         except:
