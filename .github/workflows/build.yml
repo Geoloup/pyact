@@ -26,9 +26,9 @@ jobs:
       run: |
         python main/setup.py
         
-    - name: Update build on github
+    - name: Exporting on github
       run: |
-        git branch build
+        git branch main
         git checkout build
         git add ./JSbuild/
         git config --local user.email "action@github.com"
