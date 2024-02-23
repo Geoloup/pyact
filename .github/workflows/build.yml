@@ -28,8 +28,7 @@ jobs:
         
     - name: Exporting on github
       run: |
-        git branch main
-        git checkout build
+        git checkout main
         git add ./JSbuild/
         git config --local user.email "action@github.com"
         git config --local user.name "PYact Github action builder"
